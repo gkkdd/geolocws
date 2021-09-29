@@ -1,9 +1,13 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Inject, CACHE_MANAGER } from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { CityService } from './city.service';
 
 @Controller('city')
 export class CityController {
-  constructor(private cityService: CityService) {}
+  constructor(
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
+    private cityService: CityService,
+  ) {}
 
   @Get('criteria/:id')
   findByCriteriaId(@Param('id') id: number) {

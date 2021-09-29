@@ -24,7 +24,7 @@ export class CountyService {
   async findByState(state: string): Promise<USCounties[]> {
     console.log(`START CountyService->findByState of ${state}`);
     return await this.countyRepository.findAll<USCounties>({
-      where: { canonical_name: state },
+      where: { state: state },
     });
   }
 }

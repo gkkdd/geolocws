@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { Module, CacheModule } from '@nestjs/common';
+import * as redisStore from 'cache-manager-redis-store';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { StateController } from './state/state.controller';
@@ -12,7 +13,14 @@ import { cityProviders } from './city/city.providers';
 import { countyProviders } from './county/county.providers';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    DatabaseModule,
+    CacheModule.register({
+      store: redisStore,
+      host: 'localhost',
+      port: 6379,
+    }),
+  ],
   controllers: [
     AppController,
     StateController,

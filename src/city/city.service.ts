@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+
 import { USCities } from './city.entity';
 
 @Injectable()
@@ -25,7 +26,7 @@ export class CityService {
   async findByState(state: string) {
     console.log(`START CityService->findByState of ${state}`);
     return await this.cityRepository.findAll<USCities>({
-      where: { canonical_name: state },
+      where: { state: state },
     });
   }
 }
