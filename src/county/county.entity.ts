@@ -6,10 +6,10 @@ export class USCounties extends Model {
   criteria_id: number;
 
   @Column
-  name: string;
+  county: string;
 
   @Column
-  canonical_name: string;
+  state: string;
 
   @Column
   parent_id: number;
