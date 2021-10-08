@@ -1,0 +1,6 @@
+@domain = http://localhost:3000
+
+GET {{domain}}/county/criteria/1012965
+
+###
+

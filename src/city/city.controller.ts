@@ -1,7 +1,19 @@
-import { Controller, Get, Param, CACHE_MANAGER, Inject } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  CACHE_MANAGER,
+  Inject,
+  Post,
+  Put,
+  Delete,
+  Body,
+} from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import { CityService } from './city.service';
 import { CACHE_TTL } from 'src/core/database/constants';
+import { CityDto } from './dto/city.dto';
+import { USCities } from './city.entity';
 
 @Controller('city')
 export class CityController {
@@ -39,5 +51,20 @@ export class CityController {
   @Get('state/:state')
   findByState(@Param('state') state: string) {
     return this.cityService.findByState(state);
+  }
+
+  @Post()
+  create(@Body() uSCities: USCities): Promise<USCities> {
+    return this.cityService.create(uSCities);
+  }
+
+  @Put('update/id/:id')
+  updateById(@Body() uSCities: USCities, @Param('id') id: number) {
+    return this.cityService.updateById(uSCities, id);
+  }
+
+  @Delete('delete/id/:id')
+  deleteById(@Param('id') id: number) {
+    return this.cityService.deleteById(id);
   }
 }

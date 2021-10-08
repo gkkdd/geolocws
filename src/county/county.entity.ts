@@ -1,4 +1,4 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table
 export class USCounties extends Model {
@@ -20,6 +20,6 @@ export class USCounties extends Model {
   @Column
   target_type: string;
 
-  @Column
-  status: string;
+  @Column(DataType.ENUM('ACTIVE', 'INACTIVE'))
+  status: 'ACTIVE' | 'INACTIVE';
 }

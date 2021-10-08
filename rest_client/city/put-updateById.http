@@ -1,0 +1,27 @@
+@domain = http://localhost:3000
+
+PUT {{domain}}/city/update/id/1
+content-type: application/json
+
+{
+    "state":"Alabama1"
+}
+
+###
+
+
+PUT {{domain}}/city/update/id/1
+content-type: application/json
+
+{
+  "criteria_id": 321,
+  "city": "test_city_update",
+  "state": "test_state_update",
+  "parent_id": 222,
+  "country_code": "test_country_code_update",
+  "target_type": "test target type_update",
+  "status": "ACTIVE"
+}
+
+###
+

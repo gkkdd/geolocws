@@ -1,0 +1,16 @@
+@domain = http://localhost:3000
+
+POST {{domain}}/county/ 
+content-type: application/json
+
+{
+  "criteria_id": 12341,
+  "counnty": "test_county",
+  "state": "test_state",
+  "parent_id": 123123123,
+  "country_code": "test_country_code",
+  "target_type": "test target type",
+  "status": "ACTIVE"
+}
+
+###

@@ -27,4 +27,23 @@ export class CountyService {
       where: { state: state },
     });
   }
+
+  async create(payload: USCounties): Promise<USCounties> {
+    console.log(`START CountyService->create`);
+    return await this.countyRepository.create(payload);
+  }
+
+  async updateById(payload: USCounties, id: number) {
+    console.log(`START CountyService->updateById`);
+    return await this.countyRepository.update(payload, {
+      where: { id: id },
+    });
+  }
+
+  async deleteById(id: number): Promise<void> {
+    console.log(`START CountyService->deleteById`);
+    const to_delete = await this.countyRepository.destroy<USCounties>({
+      where: { id: id },
+    });
+  }
 }

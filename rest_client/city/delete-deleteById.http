@@ -1,0 +1,6 @@
+@domain = http://localhost:3000
+
+DELETE  {{domain}}/city/delete/id/1
+
+###
+
