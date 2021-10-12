@@ -27,6 +27,7 @@
     "@nestjs/microservices": "^8.0.8",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/sequelize": "^8.0.0",
+    "@nestjs/swagger": "^5.1.0",
     "cache-manager": "^3.4.4",
     "cache-manager-redis": "^0.6.0",
     "cache-manager-redis-store": "^2.0.0",
@@ -38,7 +39,8 @@
     "rxjs": "^7.2.0",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0",
-    "sequelize-typescript": "^2.1.0"
+    "sequelize-typescript": "^2.1.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
