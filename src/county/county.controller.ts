@@ -13,6 +13,7 @@ import { Cache } from 'cache-manager';
 import { CountyService } from './county.service';
 import { CACHE_TTL } from 'src/core/database/constants';
 import { USCounties } from './county.entity';
+import { CountyDto } from './dto/county.dto';
 
 @Controller('county')
 export class CountyController {
@@ -53,13 +54,13 @@ export class CountyController {
   }
 
   @Post()
-  create(@Body() uSCounties: USCounties): Promise<USCounties> {
-    return this.countyService.create(uSCounties);
+  create(@Body() payload: CountyDto) {
+    return this.countyService.create(payload);
   }
 
   @Put('update/id/:id')
-  updateById(@Body() uSCounties: USCounties, @Param('id') id: number) {
-    return this.countyService.updateById(uSCounties, id);
+  updateById(@Body() payload: CountyDto, @Param('id') id: number) {
+    return this.countyService.updateById(payload, id);
   }
 
   @Delete('delete/id/:id')

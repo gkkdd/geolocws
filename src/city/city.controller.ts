@@ -13,7 +13,7 @@ import { Cache } from 'cache-manager';
 import { CityService } from './city.service';
 import { CACHE_TTL } from 'src/core/database/constants';
 import { CityDto } from './dto/city.dto';
-import { USCities } from './city.entity';
+import { Payload } from '@nestjs/microservices';
 
 @Controller('city')
 export class CityController {
@@ -54,13 +54,13 @@ export class CityController {
   }
 
   @Post()
-  create(@Body() uSCities: USCities): Promise<USCities> {
-    return this.cityService.create(uSCities);
+  create(@Body() payload: CityDto) {
+    return this.cityService.create(payload);
   }
 
   @Put('update/id/:id')
-  updateById(@Body() uSCities: USCities, @Param('id') id: number) {
-    return this.cityService.updateById(uSCities, id);
+  updateById(@Body() payload: CityDto, @Param('id') id: number) {
+    return this.cityService.updateById(payload, id);
   }
 
   @Delete('delete/id/:id')

@@ -1,11 +1,11 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
-export class CityDto {
+export class CountyDto {
   @IsNumber()
   criteria_id: number;
 
   @IsString()
-  city: string;
+  county: string;
 
   @IsString()
   state: string;

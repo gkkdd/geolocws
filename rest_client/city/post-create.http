@@ -4,7 +4,6 @@ POST {{domain}}/city/
 content-type: application/json
 
 {
-
   "criteria_id": 12341,
   "city": "test_city",
   "state": "test_state",
